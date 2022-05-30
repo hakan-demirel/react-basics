@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDom from "react-dom";
-import "./index.css";
 
 //CSS
+import "./index.css";
 
 // Setup vars
 const firstBook = {
@@ -23,7 +23,14 @@ function BookList() {
         img={firstBook.img}
         title={firstBook.title}
         author={firstBook.author}
-      />
+      >
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+          aperiam earum aut inventore maxime magnam deleniti, facilis recusandae
+          neque modi!
+        </p>
+      </Book>
+
       <Book
         img={secondBook.img}
         title={secondBook.title}
@@ -33,12 +40,13 @@ function BookList() {
   );
 }
 const Book = (props) => {
-  console.log(props);
+  const { img, title, author, children } = props;
   return (
     <article className="book">
-      <img src={props.img} alt="" />
-      <h1>{props.title}</h1>
-      <h4>{props.author}</h4>
+      <img src={img} alt="" />
+      {children}
+      <h1>{title}</h1>
+      <h4>{author}</h4>
     </article>
   );
 };
